@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Todo from './Todo';
 import NewTodoForm from './NewTodoForm';
 import { v4 as uuid } from 'uuid';
@@ -11,18 +11,25 @@ import { v4 as uuid } from 'uuid';
  */
 
 const TodoList = () => {
-	const INITIAL_STATE = [];
-	// update this so initial state is set by localStorage
+	const INITIAL_STATE = JSON.parse(localStorage.getItem('todos')) || [];
 	const [ todos, setTodos ] = useState(INITIAL_STATE);
 
 	const addTodo = ({ text }) => {
-		setTodos((todos) => [ ...todos, { text, id: uuid() } ]);
-		// add to localStorage
+		const newTodo = { text, id: uuid() };
+		const updatedTodos = [ ...todos, newTodo ];
+		setTodos((todos) => [ ...todos, newTodo ]);
+		updateLocalStorage(updatedTodos);
+	};
+
+	const updateLocalStorage = (updatedTodos) => {
+		localStorage.setItem('todos', JSON.stringify(updatedTodos));
 	};
 
 	const removeTodo = (id) => {
 		setTodos((todos) => todos.filter((todo) => todo.id !== id));
-		// update localStorage
+		const storedTodos = JSON.parse(localStorage.getItem('todos'));
+		const updatedTodos = storedTodos.filter((todo) => todo.id !== id);
+		updateLocalStorage(updatedTodos);
 	};
 
 	const editTodo = ({ id, text }) => {
