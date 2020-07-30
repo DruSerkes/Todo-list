@@ -33,9 +33,9 @@ const TodoList = () => {
 		<div className="TodoList">
 			<h1 className="TodoList-Header">My Todo List</h1>
 			<NewTodoForm addTodo={addTodo} />
-			<ul className="TodoList-Container">
+			<div className="TodoList-Container">
 				{todos.map((todo) => <Todo text={todo.text} key={todo.id} id={todo.id} removeTodo={removeTodo} />)}
-			</ul>
+			</div>
 		</div>
 	);
 };
