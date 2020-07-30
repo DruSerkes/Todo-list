@@ -20,8 +20,7 @@ const NewTodoForm = ({ addTodo }) => {
 	};
 
 	return (
-		<div className="NewBoxForm">
-			<h2 className="NewBoxForm-Header">Add Todo</h2>
+		<div className="NewTodoForm">
 			<form onSubmit={handleSubmit}>
 				<label htmlFor="text"> To do: </label>
 				<input

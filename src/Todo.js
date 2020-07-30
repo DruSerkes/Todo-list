@@ -10,13 +10,12 @@ const Todo = ({ key, id, removeTodo, text }) => {
 		removeTodo(id);
 	};
 	return (
-		<li key={key} id={id} className="Todo">
-			{text}
-
+		<div key={key} id={id} className="Todo">
+			<span>{text}</span>
 			<button id={id} className="Todo-Remove" onClick={handleRemove}>
 				ⅹ
 			</button>
-		</li>
+		</div>
 	);
 };
 
