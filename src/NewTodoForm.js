@@ -6,7 +6,7 @@ import React, { useState } from 'react';
  * submitted, a new Todo component should be created. - Todo- 
  * this component should display a div with the task of the todo.
  */
-const NewTodoForm = ({ addBox }) => {
+const NewTodoForm = ({ addTodo }) => {
 	const INITIAL_STATE = { text: '' };
 	const [ todoData, setTodoData ] = useState(INITIAL_STATE);
 	const handleChange = (e) => {
@@ -15,24 +15,21 @@ const NewTodoForm = ({ addBox }) => {
 	};
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		addBox(boxData);
-		setBoxData(INITIAL_STATE);
+		addTodo(todoData);
+		setTodoData(INITIAL_STATE);
 	};
 
 	return (
 		<div className="NewBoxForm">
 			<h2 className="NewBoxForm-Header">Add Todo</h2>
 			<form onSubmit={handleSubmit}>
-				<label htmlFor="width"> Width: </label>
+				<label htmlFor="text"> To do: </label>
 				<input
-					type="number"
-					min="10"
-					max="500"
-					step="5"
-					id="width"
-					name="width"
-					placeholder="10"
-					value={boxData.width}
+					type="text"
+					id="text"
+					name="text"
+					placeholder="Breakfast..."
+					value={todoData.text}
 					onChange={handleChange}
 				/>
 				<button>Add</button>
@@ -41,4 +38,4 @@ const NewTodoForm = ({ addBox }) => {
 	);
 };
 
-export default NewBoxForm;
+export default NewTodoForm;
