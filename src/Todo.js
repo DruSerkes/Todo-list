@@ -1,7 +1,7 @@
 import React from 'react';
 
 /**
- * Box- this component should display a div with a background color, width and height based on the props passed to it.
+ * returns a new Todo <li> with remove button  
  */
 
 const Todo = ({ key, id, removeTodo, text }) => {

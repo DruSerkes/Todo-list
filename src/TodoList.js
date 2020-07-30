@@ -1,44 +1,43 @@
 import React, { useState } from 'react';
-import Box from './Box';
-import NewBoxForm from './NewBoxForm';
+import Todo from './Todo';
+import NewTodoForm from './NewTodoForm';
 import { v4 as uuid } from 'uuid';
-import './BoxList.css';
+import './TodoList.css';
 
 /**
- * BoxList - Place your state that contains all of the boxes here. 
- * This component should render all of the Box components along with the NewBoxForm component
+ * TodoList - this component should render the NewTodoForm component 
+ * and should render the list of Todo components. 
+ * Place your state that contains all of the todos in this component.
  */
 
-const BoxList = () => {
-	const initialState = [];
-	const [ boxes, setBoxes ] = useState(initialState);
+const TodoList = () => {
+	const INITIAL_STATE = [];
+	// update this so initial state is set by localStorage
+	const [ todos, setTodos ] = useState(INITIAL_STATE);
 
-	const addBox = ({ width, height, backgroundColor }) => {
-		setBoxes((boxes) => [ ...boxes, { width, height, backgroundColor, id: uuid() } ]);
+	const addTodo = ({ text }) => {
+		setTodos((todos) => [ ...todos, { text, id: uuid() } ]);
+		// add to localStorage
 	};
 
-	const removeBox = (id) => {
-		setBoxes((boxes) => boxes.filter((box) => box.id !== id));
+	const removeTodo = (id) => {
+		setTodos((todos) => todos.filter((todo) => todo.id !== id));
+		// update localStorage
+	};
+
+	const editTodo = ({ id, text }) => {
+		// TODO
 	};
 
 	return (
-		<div className="BoxList">
-			<h1 className="BoxList-Header">BOXES!!!!</h1>
-			<NewBoxForm addBox={addBox} />
-			<div className="BoxList-Container">
-				{boxes.map((box) => (
-					<Box
-						width={box.width}
-						height={box.height}
-						backgroundColor={box.backgroundColor}
-						key={box.id}
-						id={box.id}
-						removeBox={removeBox}
-					/>
-				))}
-			</div>
+		<div className="TodoList">
+			<h1 className="TodoList-Header">My Todo List</h1>
+			<NewTodoForm addTodo={addTodo} />
+			<ul className="TodoList-Container">
+				{todos.map((todo) => <Todo text={todo.text} key={todo.id} id={todo.id} removeTodo={removeTodo} />)}
+			</ul>
 		</div>
 	);
 };
 
-export default BoxList;
+export default TodoList;
