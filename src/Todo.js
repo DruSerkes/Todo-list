@@ -24,7 +24,7 @@ const Todo = ({ id, text, complete, removeTodo, toggleEditing, toggleComplete })
 				{text}
 			</span>
 			<button className="Todo-Edit" onClick={handleEdit}>
-				edit
+				Edit
 			</button>
 			<button className="Todo-Remove" onClick={handleRemove}>
 				ⅹ
