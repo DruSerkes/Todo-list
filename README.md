@@ -2,7 +2,7 @@
 
 A simple, fun, in browser todo list app built with [React.js](https://reactjs.org) 
 
-[Try it out](https://druserkes.github.io/Todo-list)
+[Try it out](https://druserkes.github.io/Todo-list/)
 
 
 #### Credit 
