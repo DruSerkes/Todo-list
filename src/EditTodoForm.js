@@ -29,7 +29,7 @@ const EditTodoForm = ({ editTodo, text, id }) => {
 					value={todoData.text}
 					onChange={handleChange}
 				/>
-				<button>Edit</button>
+				<button className="EditTodoForm-Button">Edit</button>
 			</form>
 		</div>
 	);
