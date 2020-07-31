@@ -14,6 +14,7 @@ const TodoList = () => {
 	const [ todos, setTodos ] = useState(INITIAL_STATE);
 
 	const addTodo = ({ text }) => {
+		if (!text) return;
 		const newTodo = { text, id: uuid(), editing: false, complete: false };
 		const updatedTodos = [ ...todos, newTodo ];
 		setTodos((todos) => updatedTodos);
@@ -46,6 +47,7 @@ const TodoList = () => {
 	};
 
 	const editTodo = ({ id, text }) => {
+		if (!text) return;
 		const todo = todos.find((todo) => todo.id === id);
 		todo.editing = !todo.editing;
 		todo.text = text;
