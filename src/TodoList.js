@@ -15,8 +15,9 @@ const TodoList = () => {
 	const [ todos, setTodos ] = useState(INITIAL_STATE);
 
 	const addTodo = ({ text }) => {
-		const newTodo = { text, id: uuid(), editing: false };
+		const newTodo = { text, id: uuid(), editing: false, complete: false };
 		const updatedTodos = [ ...todos, newTodo ];
+		// refactor to use updatedTodos
 		setTodos((todos) => [ ...todos, newTodo ]);
 		updateLocalStorage(updatedTodos);
 	};
@@ -32,6 +33,15 @@ const TodoList = () => {
 		updateLocalStorage(updatedTodos);
 	};
 
+	const toggleComplete = (id) => {
+		const todo = todos.find((todo) => todo.id === id);
+		todo.complete = !todo.complete;
+		const updatedTodos = [ ...todos ];
+		setTodos((todos) => updatedTodos);
+		updateLocalStorage(updatedTodos);
+	};
+
+	// Editing todos
 	const toggleEditing = (id) => {
 		const todo = todos.find((todo) => todo.id === id);
 		todo.editing = !todo.editing;
@@ -49,7 +59,15 @@ const TodoList = () => {
 		return todo.editing ? (
 			<EditTodoForm text={todo.text} id={todo.id} editTodo={editTodo} key={todo.id} />
 		) : (
-			<Todo text={todo.text} key={todo.id} id={todo.id} removeTodo={removeTodo} toggleEditing={toggleEditing} />
+			<Todo
+				text={todo.text}
+				key={todo.id}
+				id={todo.id}
+				complete={todo.complete}
+				removeTodo={removeTodo}
+				toggleEditing={toggleEditing}
+				toggleComplete={toggleComplete}
+			/>
 		);
 	};
 
