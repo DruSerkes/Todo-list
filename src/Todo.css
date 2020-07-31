@@ -15,6 +15,7 @@
 	margin: 0 10px 0 20px;
 	border-radius: 50px;
 	border: none;
+	outline: none;
 	background-color: yellowgreen;
 	padding: 4px;
 	box-shadow: 1px 1px 3px;
