@@ -30,7 +30,7 @@ const NewTodoForm = ({ addTodo }) => {
 					value={todoData.text}
 					onChange={handleChange}
 				/>
-				<button>Add</button>
+				<button className="NewTodoForm-Add">Add</button>
 			</form>
 		</div>
 	);

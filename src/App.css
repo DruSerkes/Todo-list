@@ -23,6 +23,18 @@ h1 {
 	font-size: 3.1rem;
 }
 
+.NewTodoForm-Add {
+	border-radius: 50px;
+	border: none;
+	background-color: rgb(50, 104, 205);
+	padding: 5px;
+	box-shadow: 1px 1px 3px;
+}
+
+.NewTodoForm-Add:hover {
+	box-shadow: 1px 1px 1px, -1px -1px 1px;
+}
+
 input[type=text] {
 	padding: 5px;
 	border: 2px solid #ccc;
