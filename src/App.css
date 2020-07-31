@@ -26,12 +26,26 @@ h1 {
 .NewTodoForm-Add {
 	border-radius: 50px;
 	border: none;
+	outline: none;
 	background-color: rgb(50, 104, 205);
 	padding: 5px;
 	box-shadow: 1px 1px 3px;
 }
 
 .NewTodoForm-Add:hover {
+	box-shadow: 1px 1px 1px, -1px -1px 1px;
+}
+
+.EditTodoForm-Button {
+	border-radius: 50px;
+	border: none;
+	outline: none;
+	background-color: rgb(192, 119, 59);
+	padding: 5px;
+	box-shadow: 1px 1px 3px;
+}
+
+.EditTodoForm-Button:hover {
 	box-shadow: 1px 1px 1px, -1px -1px 1px;
 }
 
