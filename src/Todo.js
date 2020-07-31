@@ -10,7 +10,7 @@ const Todo = ({ id, removeTodo, text }) => {
 		removeTodo(id);
 	};
 	return (
-		<div key={id} id={id} className="Todo">
+		<div key={id} className="Todo">
 			<span>{text}</span>
 			<button id={id} className="Todo-Remove" onClick={handleRemove}>
 				ⅹ
