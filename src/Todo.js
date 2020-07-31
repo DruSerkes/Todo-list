@@ -20,7 +20,7 @@ const Todo = ({ id, text, complete, removeTodo, toggleEditing, toggleComplete })
 	};
 	return (
 		<div key={id} id={id} className="Todo">
-			<span onClick={handleComplete} className={complete ? 'complete' : ''}>
+			<span onClick={handleComplete} className={`Todo-Text ${complete ? 'complete' : ''}`}>
 				{text}
 			</span>
 			<button className="Todo-Edit" onClick={handleEdit}>
