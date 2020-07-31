@@ -1,7 +1,7 @@
 import React from 'react';
 
 /**
- * returns a new Todo with remove button  
+ * returns a div with the todo text, an edit and remove button  
  */
 
 const Todo = ({ id, removeTodo, text }) => {

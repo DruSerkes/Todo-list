@@ -5,9 +5,8 @@ import { v4 as uuid } from 'uuid';
 // import './TodoList.css';
 
 /**
- * TodoList - this component should render the NewTodoForm component 
- * and should render the list of Todo components. 
- * Place your state that contains all of the todos in this component.
+ * TodoList - this component renders the NewTodoForm component 
+ * and a list of Todo components. 
  */
 
 const TodoList = () => {
