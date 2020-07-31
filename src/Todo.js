@@ -4,14 +4,14 @@ import React from 'react';
  * returns a div with the todo text, an edit and remove button  
  */
 
-const Todo = ({ id, removeTodo, editTodo, text }) => {
+const Todo = ({ id, removeTodo, toggleEditing, text }) => {
 	const handleRemove = (e) => {
 		const { id } = e.target.parentElement;
 		removeTodo(id);
 	};
 	const handleEdit = (e) => {
 		const { id } = e.target.parentElement;
-		editTodo(id);
+		toggleEditing(id);
 	};
 	return (
 		<div key={id} id={id} className="Todo">

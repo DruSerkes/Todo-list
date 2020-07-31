@@ -4,11 +4,9 @@ import React, { useState } from 'react';
  * EditTodoForm - this component renders a form with one 
  * text input for the task to be edited. When this form is 
  * submitted, a current todo component is be updated. 
- * 
- * @param 
  */
-const EditTodoForm = ({ editTodo, text }) => {
-	const INITIAL_STATE = { text };
+const EditTodoForm = ({ editTodo, text, id }) => {
+	const INITIAL_STATE = { text, id };
 	const [ todoData, setTodoData ] = useState(INITIAL_STATE);
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -17,7 +15,6 @@ const EditTodoForm = ({ editTodo, text }) => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		editTodo(todoData);
-		// setTodoData('');
 	};
 
 	return (
