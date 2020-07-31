@@ -3,7 +3,6 @@ import Todo from './Todo';
 import NewTodoForm from './NewTodoForm';
 import EditTodoForm from './EditTodoForm';
 import { v4 as uuid } from 'uuid';
-// import './TodoList.css';
 
 /**
  * TodoList - this component renders the NewTodoForm component 
@@ -17,8 +16,7 @@ const TodoList = () => {
 	const addTodo = ({ text }) => {
 		const newTodo = { text, id: uuid(), editing: false, complete: false };
 		const updatedTodos = [ ...todos, newTodo ];
-		// refactor to use updatedTodos
-		setTodos((todos) => [ ...todos, newTodo ]);
+		setTodos((todos) => updatedTodos);
 		updateLocalStorage(updatedTodos);
 	};
 
@@ -41,7 +39,6 @@ const TodoList = () => {
 		updateLocalStorage(updatedTodos);
 	};
 
-	// Editing todos
 	const toggleEditing = (id) => {
 		const todo = todos.find((todo) => todo.id === id);
 		todo.editing = !todo.editing;
